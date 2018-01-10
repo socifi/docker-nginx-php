@@ -1,4 +1,16 @@
 # docker-nginx-php
+## Supported tags and respective `Dockerfile` links
+* `7.1-fpm`, `latest` [(7.1/Dockerfile)](https://github.com/socifi/docker-nginx-php/blob/master/7.1/Dockerfile)
+
+[![dockeri.co](http://dockeri.co/image/socifi/nginx-php)](https://registry.hub.docker.com/socifi/nginx-php/)
+
+[![dockeri.co](https://images.microbadger.com/badges/image/socifi/nginx-php.svg)](https://microbadger.com/images/socifi/nginx-php)
+
+[![](https://images.microbadger.com/badges/version/socifi/nginx-php.svg)](https://microbadger.com/images/socifi/nginx-php "Get your own version badge on microbadger.com")
+
+Based on the [Official PHP Docker image](https://store.docker.com/images/9c2c5426-0cca-4a30-a450-b2961541c6dc "official image") and [Offical Nginx Docker image](https://hub.docker.com/_/nginx/).
+This image adds some extensions that are necessary in most common use cases for running PHP projects.
+
 Nginx and PHP-FPM services running together in the one container. The webserver solution for dockerized PHP application. You should always use nginx-proxy in front of this container to manage load balancing, server names and SSL traffic (e.g let's encrypt).
 
 This image actually only helps to run you application on port `80`. It simulates nodejs app server or golang web server.
@@ -26,13 +38,6 @@ It's based on *socifi/php* and official *nginx* images.
     docker run -it --rm -p 80:80 namespace/application:latest
     ```
 
-    or alternatively:
-
-    ```sh
-    docker-compose up
-    ```
-
-    ​
 
 ## Examples
 

@@ -15,7 +15,7 @@ ADD app /app
 RUN chown -R www-data:www-data /app
 
 ADD start.sh /
-RUN chmod +X /start.sh
+RUN chmod +x /start.sh
 CMD /start.sh
 
 EXPOSE 80

@@ -1,0 +1,34 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server ipv6only=on;
+
+	root /app;
+	index index.php;
+	
+	error_log /dev/stdout info;
+	access_log /dev/stdout;
+
+	server_name localhost;
+
+	location / {
+		autoindex on;
+		try_files $uri $uri/ /index.html;
+	}
+
+	location /doc/ {
+		alias /usr/share/doc/;
+		autoindex on;
+		allow 127.0.0.1;
+		allow ::1;
+		deny all;
+	}
+
+	location ~ \.php[t]?$ {
+		try_files	$uri =404;
+		fastcgi_index index.php;	
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;	
+		fastcgi_pass localhost:9000;
+		include /etc/nginx/fastcgi_params;
+
+	}
+}
